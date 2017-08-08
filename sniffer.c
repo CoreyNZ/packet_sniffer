@@ -1,16 +1,39 @@
 /*
+ *******************************************************************************
+ * NWEN302 Project 1 : ethernet packet sniffer (written in C)
+ * Name: Corey Wilkinson
+ * ID: 300342936
+ * ECS username: wilkincore
  * sniffer.c
  *
- * By David C Harrison (david.harrison@ecs.vuw.ac.nz) July 2015
- *
- * Use as-is, modification, and/or inclusion in derivative works is permitted only if
- * the original author is credited.
+ * David C Harrison (david.harrison@ecs.vuw.ac.nz) 
+ * July 2015 supplied base code (20 lines)
+ * Refer to the first commit on CoreyNZ github profile.
  *
  * To compile: gcc -o sniffer sniffer.c -l pcap
- *
+ *******************************************************************************
  * To run: tcpdump -s0 -w - | ./sniffer -
  *     Or: ./sniffer <some file captured from tcpdump or wireshark>
- */
+ * Current captured files, are:
+ *            -> vuw.ac.nz-index.html-stream.pcap
+ *            -> v6.pcap
+ *            -> icmp.pcap
+ *            -> udp.pcap
+ *******************************************************************************
+ * The sniffer.c is capable of identifying the following,
+ *  -> IPV4
+ *    -> UDP
+ *    -> TCP
+ *    -> ICMP
+ *    -> Unknown
+ *  -> IPV6
+ *    -> IPv6 Extension Headers
+ *    -> UDP
+ *    -> TCP
+ *    -> ICMPv6
+ *    -> Unknown
+ *******************************************************************************
+*/
 
 #include <stdio.h>
 #include <pcap.h>
